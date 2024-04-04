@@ -50,6 +50,7 @@ Graph read::populate() {
         getline(line, buff, ',');
         temp->setCode(buff);
         getline(line, buff, ',');
+        cout << buff;
         temp->setMaxDelivery(stoi(buff));
 
         vertexMap[temp->getCode()] = temp;     
@@ -82,7 +83,6 @@ Graph read::populate() {
 
     // Connect 
 
-    ifstream pipes;
     pipes.open("../data/Pipes_Madeira.csv");
 
     getline(pipes, linha);
@@ -110,4 +110,5 @@ Graph read::populate() {
         graph.getVertexSet().push_back(pair.second);
     }
 
+    return graph;
 };
