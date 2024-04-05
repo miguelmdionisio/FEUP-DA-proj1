@@ -45,6 +45,19 @@ class Vertex {
 
     public:
 
+    void addEdge(Edge* edge) {
+        adj.push_back(edge);
+    }
+
+    void removeEdge(Vertex* dest) {
+        for (auto it = adj.begin(); it != adj.end(); ++it) {
+            if ((*it)->getDest() == dest) {
+                adj.erase(it);
+                break;
+            }
+        }
+    }
+
     void setType(string newType) {
         type = newType;
     }

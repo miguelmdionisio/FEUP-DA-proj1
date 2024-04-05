@@ -122,7 +122,7 @@ Graph read::populate() {
         int direction2 = stoi(direction);
         
         Edge* e = new Edge(capacity2, vertexMap[serviceB]);
-        vertexMap[serviceA]->getAdj().push_back(e);
+        vertexMap[serviceA]->addEdge(e);
     }
     pipes.close();
 

@@ -42,8 +42,12 @@ int main(){
     **/
 
     Graph graph = read::populate();
-    for (auto v: graph.getVertexSet()){
-        cout << v->getType();
+    for (auto v : graph.getVertexSet()) {
+        cout << "Edges for node " << v->getCode() << ":" << endl;
+        for (auto e : v->getAdj()) {
+            cout << "Edge to node " << e->getDest()->getCode() << endl;
+        }
+        cout << endl;
     }
 
 
