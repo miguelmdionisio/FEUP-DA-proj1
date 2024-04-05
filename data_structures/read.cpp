@@ -121,8 +121,9 @@ Graph read::populate() {
         int capacity2 = stoi(capacity);
         int direction2 = stoi(direction);
         
-        Edge* e = new Edge(capacity2, vertexMap[serviceB]);
+        Edge* e = new Edge(capacity2, vertexMap[serviceB], vertexMap[serviceA]);
         vertexMap[serviceA]->addEdge(e);
+        graph.addEdge(e);
     }
     pipes.close();
 

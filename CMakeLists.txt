@@ -10,7 +10,9 @@ set(PROJECT_HEADERS
 set(PROJECT_SOURCES
         src/main.cpp
         data_structures/Graph.cpp
-        data_structures/read.cpp)
+        data_structures/read.cpp
+        src/ex1.cpp
+        src/ex1.h)
 
 add_executable(proj1
         ${PROJECT_HEADERS}

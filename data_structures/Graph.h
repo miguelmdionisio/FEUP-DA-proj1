@@ -9,18 +9,31 @@ class Vertex;
 
 class Edge {
     public:
-    Edge(int capacity, Vertex* dest) : capacity(capacity), dest(dest) {}
+    Edge(int capacity, Vertex* dest, Vertex* source) : capacity(capacity), dest(dest), source(source) {}
 
     void setCapacity(int newCapacity) { capacity = newCapacity; }
-    int getCapacity() { return capacity; }
+    int getCapacity() const { return capacity; }
+    
+    void setFlow(int newFlow) {
+        flow = newFlow;
+    }
+
+    int getFlow() const {
+        return flow;
+    }
 
     Vertex* getDest() {
         return dest;
     }
+    Vertex* getSource() {
+        return source;
+    }
 
     private:
     int capacity;
-    Vertex* dest;  
+    Vertex* dest;
+    Vertex* source;
+    int flow;
 };
 
 
@@ -41,12 +54,29 @@ class Vertex {
     bool visited;
 
     vector<Edge *> adj;
+    Edge *path;
 
 
     public:
 
+    bool operator==(const Vertex& other) const {
+        return code == other.code;
+    }
+
+    bool operator!=(const Vertex& other) const {
+        return !(*this == other);
+    }
+
     void addEdge(Edge* edge) {
         adj.push_back(edge);
+    }
+
+    bool getVisited() const   {
+        return visited;
+    }
+
+    void setVisited(bool vis)   {
+        visited = vis;
     }
 
     void removeEdge(Vertex* dest) {
@@ -56,6 +86,14 @@ class Vertex {
                 break;
             }
         }
+    }
+
+    Edge* getPath()  {
+        return path;
+    }
+
+    void setPath(Edge* edge){
+        path = edge;
     }
 
     void setType(string newType) {
@@ -100,15 +138,15 @@ class Vertex {
         return name;
     }
 
-    int getMaxDelivery() {
+    int getMaxDelivery() const {
         return maxDelivery;
     }
 
-    double getDemand() {
+    double getDemand() const {
         return demand;
     }
 
-    int getPopulation() {
+    int getPopulation() const {
         return population;
     }
     
@@ -117,9 +155,64 @@ class Vertex {
 class Graph {
 
     vector<Vertex *> vertexSet;
+    vector<Edge *> edges;
 
     public:
-    
+
+        vector<Edge *> getIncoming(Vertex* v){
+            vector<Edge *> incoming;
+            for (auto e: edges){
+                if (e->getSource() == v){
+                    incoming.push_back(e);
+                }
+            }
+            return incoming;
+        }
+
+        void addEdge(Edge *e){
+            edges.push_back(e);
+        }
+
+        vector<Edge *> getEdges()   {
+            return edges;
+        }
+
+        vector<Vertex *> getCities() {
+            vector<Vertex *> cities;
+            for (auto v : vertexSet) {
+                if (v->getType() == "city") {
+                    cities.push_back(v);
+                }
+            }
+            return cities;
+        }
+
+        vector<Vertex *> getReservoirs() {
+            vector<Vertex *> reservoirs;
+            for (auto v : vertexSet) {
+                if (v->getType() == "reservoir") {
+                    reservoirs.push_back(v);
+                }
+            }
+            return reservoirs;
+        }
+
+        vector<Vertex *> getStations() {
+            vector<Vertex *> stations;
+            for (auto v : vertexSet) {
+                if (v->getType() == "station") {
+                    stations.push_back(v);
+                }
+            }
+            return stations;
+        }
+
+        void reset() {
+            for (auto v : vertexSet) {
+                v->setVisited(false);
+            }
+        }
+
         vector<Vertex *> getVertexSet() {
             return vertexSet;
         }
