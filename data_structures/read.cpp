@@ -11,29 +11,44 @@ Graph read::populate() {
     ifstream pipes;
 
     //ler estacoes
-    stations.open("../data/Stations_Madeira.csv");
-    if (!stations.is_open()) return graph;
+    stations.open("data/Stations_Madeira.csv");
+    if (!stations.is_open()){
+        cout << "error stations file";
+        return graph;
+    }
 
 
     string linha;
     getline(stations, linha);
 
     while(getline(stations, linha)){
-        stringstream line(linha);
-        string buff;
-        string code;
-        Vertex* temp = new Vertex();
-        temp->setType("station");
+    stringstream line(linha);
+    string buff;
+    Vertex* temp = new Vertex();
+    temp->setType("station");
 
-        getline(line, buff, ',');
-        getline(line, code, ',');
-        temp->setCode(code);
+    getline(line, buff, ',');
+    getline(line, buff, ','); 
+    cout << "Read code: " << buff << endl; 
+    temp->setCode(buff);
 
-        //add ao dicionario
-        vertexMap[code] = temp;
+    vertexMap[temp->getCode()] = temp;
+
+    cout << "deu? - " << vertexMap[buff]->getCode() << endl;
     }
     stations.close();
-    reservoirs.open("../data/Reservoirs_Madeira.csv");
+
+for (auto v: vertexMap){
+        cout << v.first << " - " << v.second->getType() << endl;
+    }
+
+
+    reservoirs.open("data/Reservoirs_Madeira.csv");
+
+    if (!reservoirs.is_open()){
+        cout << "error reservoirs";
+        return graph;
+    }
 
     getline(reservoirs, linha);
     while(getline(reservoirs, linha)){
@@ -50,14 +65,19 @@ Graph read::populate() {
         getline(line, buff, ',');
         temp->setCode(buff);
         getline(line, buff, ',');
-        cout << buff;
+        cout << buff << endl;
         temp->setMaxDelivery(stoi(buff));
+        cout << "reservoir ok" << endl;
 
         vertexMap[temp->getCode()] = temp;     
     }
 
     reservoirs.close();
-    cities.open("../data/Cities_Madeira.csv");
+    cities.open("data/Cities_Madeira.csv");
+    if (!cities.is_open()){
+        cout << "error cities file";
+        return graph;
+    }
 
 
     getline(cities, linha);
@@ -74,16 +94,30 @@ Graph read::populate() {
         temp->setCode(buff);
         getline(line, buff, ',');
         temp->setDemand(stod(buff));
-        getline(line, buff, ',');
+        getline(line, buff);
+        buff.erase(std::remove(buff.begin(), buff.end(), '\"' ), buff.end());
+        buff.erase(std::remove(buff.begin(), buff.end(), ',' ), buff.end());
         temp->setPopulation(stoi(buff));
+        cout << "cities ok" << endl;
 
 
         vertexMap[temp->getCode()] = temp;
     }
+    cities.close();
 
+
+
+for (auto v: vertexMap){
+        cout << v.first << " - "<< v.second->getType() << endl;
+    } 
+    
     // Connect 
 
-    pipes.open("../data/Pipes_Madeira.csv");
+    pipes.open("data/Pipes_Madeira.csv");
+    if (!pipes.is_open()){
+        cout << "error pipes file";
+        return graph;
+    }
 
     getline(pipes, linha);
     while(getline(pipes, linha)){
@@ -102,12 +136,14 @@ Graph read::populate() {
         int direction2 = stoi(direction);
         
         Edge* e = new Edge(capacity2, vertexMap[serviceB]);
+        cout << serviceA << endl;
         vertexMap[serviceA]->getAdj().push_back(e);
     }
+    pipes.close();
 
-    // Iterate through vertexMap and populate graph
     for (auto& pair : vertexMap) {
         graph.getVertexSet().push_back(pair.second);
+
     }
 
     return graph;

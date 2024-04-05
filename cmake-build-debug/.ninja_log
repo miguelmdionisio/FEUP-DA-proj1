@@ -1,0 +1,7 @@
+# ninja log v5
+4	328	7340410602883330	CMakeFiles/proj1.dir/data_structures/Graph.cpp.obj	6dfe48c3039fc426
+0	411	7340410603705081	CMakeFiles/proj1.dir/src/main.cpp.obj	52fee7283f1a45ec
+8	623	7340410605825491	CMakeFiles/proj1.dir/data_structures/read.cpp.obj	26bf666bb267e185
+623	883	7340410608381768	proj1.exe	e53dea7c8fdf1120
+3	376	7340414918382907	CMakeFiles/proj1.dir/src/main.cpp.obj	52fee7283f1a45ec
+377	536	7340414919944679	proj1.exe	e53dea7c8fdf1120
