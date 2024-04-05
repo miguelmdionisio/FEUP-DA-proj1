@@ -24,23 +24,18 @@ Graph read::populate() {
     while(getline(stations, linha)){
     stringstream line(linha);
     string buff;
-    Vertex* temp = new Vertex();
+    auto* temp = new Vertex();
     temp->setType("station");
 
     getline(line, buff, ',');
-    getline(line, buff, ','); 
-    cout << "Read code: " << buff << endl; 
+    getline(line, buff, ',');
     temp->setCode(buff);
 
     vertexMap[temp->getCode()] = temp;
 
-    cout << "deu? - " << vertexMap[buff]->getCode() << endl;
     }
     stations.close();
 
-for (auto v: vertexMap){
-        cout << v.first << " - " << v.second->getType() << endl;
-    }
 
 
     reservoirs.open("data/Reservoirs_Madeira.csv");
@@ -54,7 +49,7 @@ for (auto v: vertexMap){
     while(getline(reservoirs, linha)){
         stringstream line(linha);
         string buff;
-        Vertex* temp = new Vertex();
+        auto* temp = new Vertex();
         temp->setType("reservoir");
 
         getline(line, buff, ',');
@@ -65,10 +60,7 @@ for (auto v: vertexMap){
         getline(line, buff, ',');
         temp->setCode(buff);
         getline(line, buff, ',');
-        cout << buff << endl;
         temp->setMaxDelivery(stoi(buff));
-        cout << "reservoir ok" << endl;
-
         vertexMap[temp->getCode()] = temp;     
     }
 
@@ -84,7 +76,7 @@ for (auto v: vertexMap){
     while(getline(cities, linha)){
         stringstream line(linha);
         string buff;
-        Vertex* temp = new Vertex();
+        auto* temp = new Vertex();
         temp->setType("city");
 
         getline(line, buff, ',');
@@ -98,18 +90,12 @@ for (auto v: vertexMap){
         buff.erase(std::remove(buff.begin(), buff.end(), '\"' ), buff.end());
         buff.erase(std::remove(buff.begin(), buff.end(), ',' ), buff.end());
         temp->setPopulation(stoi(buff));
-        cout << "cities ok" << endl;
 
 
         vertexMap[temp->getCode()] = temp;
     }
     cities.close();
 
-
-
-for (auto v: vertexMap){
-        cout << v.first << " - "<< v.second->getType() << endl;
-    } 
     
     // Connect 
 
@@ -136,15 +122,15 @@ for (auto v: vertexMap){
         int direction2 = stoi(direction);
         
         Edge* e = new Edge(capacity2, vertexMap[serviceB]);
-        cout << serviceA << endl;
         vertexMap[serviceA]->getAdj().push_back(e);
     }
     pipes.close();
 
     for (auto& pair : vertexMap) {
-        graph.getVertexSet().push_back(pair.second);
-
+        graph.addVertex(pair.second);
     }
 
+
+    cout << "returning graph" << endl;
     return graph;
 };

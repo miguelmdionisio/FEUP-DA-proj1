@@ -41,11 +41,9 @@ int main(){
         return 0;
     **/
 
-   cout << "teste";
     Graph graph = read::populate();
-    cout << "lido" << endl;
     for (auto v: graph.getVertexSet()){
-        cout << v->getAdj().front();
+        cout << v->getType();
     }
 
 

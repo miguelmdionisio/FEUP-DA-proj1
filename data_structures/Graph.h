@@ -14,6 +14,10 @@ class Edge {
     void setCapacity(int newCapacity) { capacity = newCapacity; }
     int getCapacity() { return capacity; }
 
+    Vertex* getDest() {
+        return dest;
+    }
+
     private:
     int capacity;
     Vertex* dest;  
@@ -102,7 +106,12 @@ class Graph {
     vector<Vertex *> vertexSet;
 
     public:
+    
         vector<Vertex *> getVertexSet() {
             return vertexSet;
         }
+
+        void addVertex(Vertex* vertex) {
+            vertexSet.push_back(vertex);
+        }   
 };
