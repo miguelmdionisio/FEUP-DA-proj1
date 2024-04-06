@@ -9,7 +9,7 @@ class Vertex;
 
 class Edge {
     public:
-    Edge(int capacity, Vertex* dest, Vertex* source) : capacity(capacity), dest(dest), source(source) {}
+    Edge(int capacity, Vertex* dest, Vertex* source, int flow) : capacity(capacity), dest(dest), source(source), flow(flow) {}
 
     void setCapacity(int newCapacity) { capacity = newCapacity; }
     int getCapacity() const { return capacity; }
@@ -159,6 +159,31 @@ class Graph {
 
     public:
 
+        void clearSupers(){
+            auto source = findVertex("SSource");
+            auto sink = findVertex("SSink");
+            if (source != nullptr && sink != nullptr){
+            for (auto edge : getIncoming(sink)){
+                auto sourceVertex = edge->getSource();
+                sourceVertex->removeEdge(edge->getDest());
+                delete edge;
+            }
+            for (auto edge : source->getAdj()){
+                auto destVertex = edge->getDest();
+                destVertex->removeEdge(edge->getDest());
+                delete edge;
+            }
+            for (auto it = vertexSet.begin(); it != vertexSet.end(); ) {
+                if (*it == source || *it == sink) {
+                    delete *it;
+                    it = vertexSet.erase(it);
+                } else {
+                    ++it;
+                }
+            }
+            }
+        }
+
         vector<Edge *> getIncoming(Vertex* v){
             vector<Edge *> incoming;
             for (auto e: edges){
@@ -167,6 +192,15 @@ class Graph {
                 }
             }
             return incoming;
+        }
+
+        int getIncomingFlow(Vertex* v){
+            auto incoming = getIncoming(v);
+            int flow = 0;
+            for (auto e: incoming)  {
+                flow += e->getFlow();
+            }
+            return flow;
         }
 
         void addEdge(Edge *e){
@@ -240,11 +274,21 @@ class Graph {
         for (Vertex* vertex : vertexSet) {
             if (vertex->getCode() == code) {
                 return vertex;
+                }
             }
-        }
-        return nullptr;
+            return nullptr;
         }
 
+        Vertex* findvertexByName(string name) {
+            for (Vertex* vertex : vertexSet) {
+                if (vertex->getName() == name) {
+                    return vertex;
+                }
+            }
+            return nullptr;
+        }
+
+        /*
         bool bfs(Vertex* source, Vertex* sink, unordered_map<Vertex*, Vertex*> &parent) {
         for (Vertex* v : vertexSet) {
             v->setVisited(false);
@@ -435,5 +479,5 @@ class Graph {
         }
         }
 
-
+*/
 };
