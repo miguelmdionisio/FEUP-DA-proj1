@@ -86,29 +86,42 @@ void takeOutStation(Graph* g, string station){
     
 }
 
-
+struct EdgeData {
+    int capacity;
+    std::string destCode;
+    std::string sourceCode;
+    int flow;
+};
 
 void removePumpingStations(Graph* g) {
-    auto stations = g->getStations();
+    auto originalStations = g->getStations();
 
-    for (auto station : stations) {
+    // Iterating over the stations to check the impact of their removal.
+    for (auto& station : originalStations) {
         string name = station->getName();
         string code = station->getCode();
 
+        // Save the edges to restore them later.
+        vector<EdgeData> edgesData;
+        for (auto edge : station->getAdj()) {
+            edgesData.push_back(EdgeData{edge->getCapacity(), edge->getDest()->getCode(), edge->getSource()->getCode(), edge->getFlow()});
+        }
+
+        // Remove the station temporarily.
         g->removeVertex(code);
 
+        // Recalculate max flow after removing the station.
         calculateMaxFlowToCities(g);
 
-        auto cities = g->getCities();
+        vector<Vertex*> cities = g->getCities();
         bool allDemandsMet = true;
-
         cout << "Affected cities when pumping station " << name << " (" << code << ") is removed:" << endl;
+
+        // Check each city for any water supply deficit.
         for (auto city : cities) {
-            for (auto e : city->getAdj()) {
-                if (e->getFlow() < city->getDemand()) {
-                    allDemandsMet = false;
-                    cout << "City Code: " << city->getCode() << " | Water Supply Deficit: " << city->getDemand() - e->getFlow() << endl;
-                }
+            if (g->getIncomingFlow(city) < city->getDemand()) {
+                allDemandsMet = false;
+                cout << "City Code: " << city->getCode() << " | Water Supply Deficit: " << city->getDemand() - g->getIncomingFlow(city) << endl;
             }
         }
 
@@ -116,9 +129,19 @@ void removePumpingStations(Graph* g) {
             cout << "No cities are affected when pumping station " << name << " (" << code << ") is temporarily removed." << endl;
         }
 
-        g->addVertex(station);
+        // Restore the station with its original edges.
+        auto newStation = new Vertex(*station);
+        g->addVertex(newStation);
+        for (auto& edgeData : edgesData) {
+            auto dest = g->findVertex(edgeData.destCode);
+            auto source = g->findVertex(edgeData.sourceCode);
+            auto newEdge = new Edge(edgeData.capacity, dest, source, edgeData.flow);
+            g->addEdge(newEdge);
+            source->addEdge(newEdge);
+        }
     }
 }
+
 
 void removePipelines(Graph* g){
     auto cities = g->getCities();

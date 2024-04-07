@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Uni/2/DA/proj1/FEUP-DA-proj1/cmake-build-debug",
-		"source" : "C:/Uni/2/DA/proj1/FEUP-DA-proj1"
+		"build" : "C:/Users/filip/Documents/GitHub/FEUP-DA-proj1/cmake-build-debug",
+		"source" : "C:/Users/filip/Documents/GitHub/FEUP-DA-proj1"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 5
+		"minor" : 6
 	}
 }
