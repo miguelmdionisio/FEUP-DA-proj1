@@ -6,5 +6,6 @@
 
 
 void removeReservoir(Graph *graph, string res);
-
+void removePumpingStations(Graph *graph);
+void removePipelines(Graph *graph);
 #endif //PROJ1_EX3_H

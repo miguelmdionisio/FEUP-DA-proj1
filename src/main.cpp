@@ -87,10 +87,10 @@ int main(){
                                 removeReservoir(&graph, vertChoice);
                                 break;
                             case 2:
-                                // Add code for 3.2 here
+                                removePumpingStations(&graph);
                                 break;
                             case 3:
-                                // Add code for 3.3 here
+                                removePipelines(&graph);
                                 break;
                             case 4:
                                 goto previous_menu2;
