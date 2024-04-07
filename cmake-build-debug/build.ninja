@@ -73,6 +73,12 @@ build CMakeFiles/proj1.dir/src/ex1.cpp.obj: CXX_COMPILER__proj1_unscanned_Debug 
   OBJECT_DIR = CMakeFiles\proj1.dir
   OBJECT_FILE_DIR = CMakeFiles\proj1.dir\src
 
+build CMakeFiles/proj1.dir/src/ex3.cpp.obj: CXX_COMPILER__proj1_unscanned_Debug C$:/Uni/2/DA/proj1/FEUP-DA-proj1/src/ex3.cpp || cmake_object_order_depends_target_proj1
+  DEP_FILE = CMakeFiles\proj1.dir\src\ex3.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\proj1.dir
+  OBJECT_FILE_DIR = CMakeFiles\proj1.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target proj1
@@ -81,7 +87,7 @@ build CMakeFiles/proj1.dir/src/ex1.cpp.obj: CXX_COMPILER__proj1_unscanned_Debug 
 #############################################
 # Link the executable proj1.exe
 
-build proj1.exe: CXX_EXECUTABLE_LINKER__proj1_Debug CMakeFiles/proj1.dir/src/main.cpp.obj CMakeFiles/proj1.dir/data_structures/Graph.cpp.obj CMakeFiles/proj1.dir/data_structures/read.cpp.obj CMakeFiles/proj1.dir/src/ex1.cpp.obj
+build proj1.exe: CXX_EXECUTABLE_LINKER__proj1_Debug CMakeFiles/proj1.dir/src/main.cpp.obj CMakeFiles/proj1.dir/data_structures/Graph.cpp.obj CMakeFiles/proj1.dir/data_structures/read.cpp.obj CMakeFiles/proj1.dir/src/ex1.cpp.obj CMakeFiles/proj1.dir/src/ex3.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\proj1.dir

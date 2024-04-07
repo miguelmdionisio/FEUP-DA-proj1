@@ -7,49 +7,42 @@
 using namespace std;
 
 
-void printDeficits(Graph* originalGraph){
 
-    Graph* g = new Graph(*originalGraph);
-    
-    auto reservoirs = g->getReservoirs();
+void showFlowAll(Graph* g){
     auto cities = g->getCities();
-
-    auto *superSource = new Vertex();
-    auto *superSink = new Vertex();
-    superSource->setCode("SSource");
-    superSink->setCode("SSink");
-    g->addVertex(superSource);
-    g->addVertex(superSink);
-
-    for (auto reservoir: reservoirs) {
-        auto e = new Edge(reservoir->getMaxDelivery(), reservoir, superSource, 0);
-        superSource->addEdge(e);
-        g->addEdge(e);
+    for (auto city: cities){
+        for (auto e: city->getAdj()) cout << city->getName() << ": " << e->getFlow() <<endl; //only 1 edge
     }
-    for (auto city: cities) {
-        auto e = new Edge(city->getDemand(), superSink, city, 0);
-        city->addEdge(e);
-        g->addEdge(e);
-    }
-    edmondsKarp(g, superSource, superSink);
+}
 
-    for(auto city: cities){
-        for (auto e: g->getIncoming(city)){
+void showFlowCity(Graph* g, string city){
+    auto v = g->findvertexByName(city);
+    if (v == nullptr) cout << "Invalid name. Please try again." << endl; else{
+        for (auto e: v->getAdj()){
+            cout << v->getName() << ": " << e->getFlow() << endl;
+        }
+    }
+
+}
+
+void showDeficits(Graph* g){
+    auto cities = g->getCities();
+    for (auto city: cities){
+        for (auto e: city->getAdj()){
             if (e->getFlow() < city->getDemand()){
-                cout << city->getName() << ":" << endl;
+                cout << "--- " << city->getName() << " ---" << endl;
+                cout << "Flow: " << e->getFlow() << endl;
                 cout << "Demand: " << city->getDemand() << endl;
-                cout << "Actual Flow: " << e->getFlow() << endl;
                 cout << "Deficit: " << city->getDemand() - e->getFlow() << endl;
             }
         }
     }
 }
 
-void calculateMaxFlowToCities(Graph* originalGraph, Vertex* vertex) {
-
-    Graph* g = new Graph(*originalGraph);
+void calculateMaxFlowToCities(Graph* g) {
 
     std::ofstream outputFile("output.txt");
+
 
     auto reservoirs = g->getReservoirs();
     auto cities = g->getCities();
@@ -72,21 +65,8 @@ void calculateMaxFlowToCities(Graph* originalGraph, Vertex* vertex) {
         g->addEdge(e);
     }
 
-
     edmondsKarp(g, superSource, superSink);
 
-
-    if (vertex == nullptr){
-        for (auto city: cities) {
-            for (auto e: g->getIncoming(city)) {
-                outputFile << city->getName() << " - " << e->getFlow() << endl;
-                cout << city->getName() << " - " << e->getFlow() << endl;
-            }
-        }
-        outputFile.close();
-    } else{
-        for (auto e: g->getIncoming(vertex)) cout << vertex->getName() << " - " << e->getFlow() << endl;
-    }
 }
 
 void edmondsKarp(Graph *g, Vertex* source, Vertex* target) {
@@ -170,6 +150,43 @@ void augmentFlowAlongPath(Vertex *s, Vertex *t, double f) {
         else {
             e->setFlow(flow - f);
             v = e->getDest();
+        }
+    }
+}
+
+
+void balanceLoad(Graph* originalGraph) {
+
+    Graph* g = new Graph(*originalGraph);
+
+    //calculateMaxFlowToCities(g, nullptr);
+    
+    auto edges = g->getEdges();
+    double totalDifference = 0;
+    double maxDifference = 0;
+    for (auto e: edges) {
+        double difference = e->getCapacity() - e->getFlow();
+        totalDifference += difference;
+        maxDifference = std::max(maxDifference, difference);
+    }
+    double averageDifference = totalDifference / edges.size();
+
+    for (auto e: edges) {
+        double difference = e->getCapacity() - e->getFlow();
+        if (difference > averageDifference) {
+            for (auto e2: edges) {
+                double difference2 = e2->getCapacity() - e2->getFlow();
+                if (difference2 < averageDifference) {
+                    double transfer = std::min(difference - averageDifference, averageDifference - difference2);
+                    e->setFlow(e->getFlow() + transfer);
+                    e2->setFlow(e2->getFlow() - transfer);
+                    difference -= transfer;
+                    difference2 += transfer;
+                    if (difference <= averageDifference) {
+                        break;
+                    }
+                }
+            }
         }
     }
 }

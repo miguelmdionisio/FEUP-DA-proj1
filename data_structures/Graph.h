@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
+
 
 using namespace std;
 
@@ -159,35 +161,34 @@ class Graph {
 
     public:
 
-        void clearSupers(){
-            auto source = findVertex("SSource");
-            auto sink = findVertex("SSink");
-            if (source != nullptr && sink != nullptr){
-            for (auto edge : getIncoming(sink)){
-                auto sourceVertex = edge->getSource();
-                sourceVertex->removeEdge(edge->getDest());
-                delete edge;
-            }
-            for (auto edge : source->getAdj()){
-                auto destVertex = edge->getDest();
-                destVertex->removeEdge(edge->getDest());
-                delete edge;
-            }
-            for (auto it = vertexSet.begin(); it != vertexSet.end(); ) {
-                if (*it == source || *it == sink) {
-                    delete *it;
-                    it = vertexSet.erase(it);
-                } else {
-                    ++it;
-                }
-            }
-            }
+    void removeVertex(const string& code) {
+        Vertex* vertexToRemove = findVertex(code);
+
+        if (vertexToRemove == nullptr) {
+            // Vertex not found
+            return;
         }
+
+        // Remove all edges associated with the vertex
+        for (Edge* edge : vertexToRemove->getAdj()) {
+            Vertex* destVertex = edge->getDest();
+            destVertex->removeEdge(vertexToRemove);
+            delete edge;
+        }
+
+        // Remove the vertex itself from vertexSet
+        auto it = find(vertexSet.begin(), vertexSet.end(), vertexToRemove);
+        if (it != vertexSet.end()) {
+            delete *it;
+            vertexSet.erase(it);
+        }
+    }
+
 
         vector<Edge *> getIncoming(Vertex* v){
             vector<Edge *> incoming;
             for (auto e: edges){
-                if (e->getSource() == v){
+                if (e->getDest() == v){
                     incoming.push_back(e);
                 }
             }

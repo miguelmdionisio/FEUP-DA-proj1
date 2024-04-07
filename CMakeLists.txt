@@ -12,7 +12,9 @@ set(PROJECT_SOURCES
         data_structures/Graph.cpp
         data_structures/read.cpp
         src/ex1.cpp
-        src/ex1.h)
+        src/ex1.h
+        src/ex3.cpp
+        src/ex3.h)
 
 add_executable(proj1
         ${PROJECT_HEADERS}

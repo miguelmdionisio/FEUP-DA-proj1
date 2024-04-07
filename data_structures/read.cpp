@@ -125,7 +125,7 @@ Graph read::populate() {
         Edge* e = new Edge(capacity2, vertexMap[serviceB], vertexMap[serviceA], 0);
         vertexMap[serviceA]->addEdge(e);
         graph.addEdge(e);
-        cout << direction2 << endl;
+
         if (direction2 == 0) {
             Edge* f = new Edge(capacity2, vertexMap[serviceA], vertexMap[serviceB], 0);
             vertexMap[serviceB]->addEdge(f);
@@ -139,6 +139,5 @@ Graph read::populate() {
     }
 
 
-    cout << "returning graph" << endl;
     return graph;
 };
