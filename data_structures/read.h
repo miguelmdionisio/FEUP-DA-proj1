@@ -9,4 +9,5 @@ using namespace std;
 class read {
         public:
         static Graph populate();
+        static Graph populate_large();
     };

@@ -19,9 +19,42 @@ void removeReservoir(Graph* g, string res){
             }
         }
     }
-
-
 }
+
+void simulatePipelineFailure(Graph* g) {
+
+    map<string, double> originalFlows;
+    auto cities = g->getCities();
+
+    auto edges = g->getEdges();
+
+
+    for (auto& edge : edges) {
+        if (edge->getAux()) continue;
+
+        auto sibling = g->getSibling(edge);
+        if (sibling != nullptr) {
+            sibling->setCapacity(0);
+            sibling->setAux(true);
+            edge->setAux(true);
+        }
+        double capacity = edge->getCapacity();
+
+        edge->setCapacity(0);
+        calculateMaxFlowToCities(g);
+
+        for (auto city: cities){
+            auto simFlow = g->getIncomingFlow(city);
+            if (simFlow < city->getDemand()){
+                cout <<city->getName()<< " in pipe " << edge->getSource()->getCode() << " to " << edge->getDest()->getCode() << " deficit  of " << city->getDemand()-simFlow << endl;
+            }
+        }
+
+        edge->setCapacity(capacity);
+        if (sibling != nullptr) sibling->setCapacity((capacity));
+    }
+}
+
 
 
 void removePumpingStations(Graph* g) {
@@ -84,4 +117,3 @@ void removePipelines(Graph* g){
         pipeline->setCapacity(originalCapacity);
     }
 }
-

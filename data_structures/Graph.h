@@ -13,6 +13,18 @@ class Edge {
     public:
     Edge(int capacity, Vertex* dest, Vertex* source, int flow) : capacity(capacity), dest(dest), source(source), flow(flow) {}
 
+    Edge& operator=(const Edge& other) {
+        if (this != &other) { // Check for self-assignment
+            // Copy data members from 'other' to 'this'
+            capacity = other.capacity;
+            dest = other.dest;
+            source = other.source;
+            flow = other.flow;
+            aux = other.aux;
+        }
+        return *this;
+    }
+    
     void setCapacity(int newCapacity) { capacity = newCapacity; }
     int getCapacity() const { return capacity; }
     
@@ -30,12 +42,19 @@ class Edge {
     Vertex* getSource() {
         return source;
     }
+    bool getAux() {
+        return aux;
+    }
+    void setAux(bool visited){
+        aux = visited;
+    }
 
     private:
     int capacity;
     Vertex* dest;
     Vertex* source;
     int flow;
+    bool aux = false;
 };
 
 
@@ -65,6 +84,22 @@ class Vertex {
         return code == other.code;
     }
 
+    bool removeEdge(Vertex* dest){
+        bool removed = false;
+        auto it = adj.begin();
+        while (it != adj.end()){
+            auto edge = *it;
+            auto edgeDest = edge->getDest();
+            if (dest == edgeDest){
+                it = adj.erase(it);
+                delete edge;
+                return true;
+            }
+        }
+        return false;
+
+    }
+
     bool operator!=(const Vertex& other) const {
         return !(*this == other);
     }
@@ -79,15 +114,6 @@ class Vertex {
 
     void setVisited(bool vis)   {
         visited = vis;
-    }
-
-    void removeEdge(Vertex* dest) {
-        for (auto it = adj.begin(); it != adj.end(); ++it) {
-            if ((*it)->getDest() == dest) {
-                adj.erase(it);
-                break;
-            }
-        }
     }
 
     Edge* getPath()  {
@@ -162,30 +188,29 @@ class Graph {
     public:
 
     void removeVertex(const string& code) {
-        Vertex* vertexToRemove = findVertex(code);
+        Vertex* vertexToRemove = nullptr;
 
-        if (vertexToRemove == nullptr) {
-            // Vertex not found
-            return;
+        for (auto it = vertexSet.begin(); it != vertexSet.end(); ++it) {
+            if ((*it)->getCode() == code) {
+                vertexToRemove = *it;
+                vertexSet.erase(it);
+                break;
+            }
         }
 
-        // Remove all edges associated with the vertex
-        for (Edge* edge : vertexToRemove->getAdj()) {
-            Vertex* destVertex = edge->getDest();
-            destVertex->removeEdge(vertexToRemove);
-            delete edge;
-        }
-
-        // Remove the vertex itself from vertexSet
-        auto it = find(vertexSet.begin(), vertexSet.end(), vertexToRemove);
-        if (it != vertexSet.end()) {
-            delete *it;
-            vertexSet.erase(it);
+        if (vertexToRemove) {
+            for (auto it = edges.begin(); it != edges.end(); ) {
+                if ((*it)->getSource() == vertexToRemove || (*it)->getDest() == vertexToRemove) {
+                    delete *it;
+                    it = edges.erase(it);
+                } else {
+                    ++it;
+                }
+            }
         }
     }
 
-
-        vector<Edge *> getIncoming(Vertex* v){
+    vector<Edge *> getIncoming(Vertex* v){
             vector<Edge *> incoming;
             for (auto e: edges){
                 if (e->getDest() == v){
@@ -254,7 +279,11 @@ class Graph {
 
         void addVertex(Vertex* vertex) {
             vertexSet.push_back(vertex);
-        } 
+        }
+
+        Edge* getSibling(Edge* e){
+        return findEdge(e->getDest(), e->getSource());
+        }
 
         Edge* findEdge(Vertex* from, Vertex* to) {
         for (Edge* edge : from->getAdj()) {

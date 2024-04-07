@@ -11,16 +11,15 @@ using namespace std;
 void showFlowAll(Graph* g){
     auto cities = g->getCities();
     for (auto city: cities){
-        for (auto e: city->getAdj()) cout << city->getName() << ": " << e->getFlow() <<endl; //only 1 edge
+        auto flow = g->getIncomingFlow(city);
+        cout << city->getName() << ": " << flow << endl;
     }
 }
 
 void showFlowCity(Graph* g, string city){
     auto v = g->findvertexByName(city);
     if (v == nullptr) cout << "Invalid name. Please try again." << endl; else{
-        for (auto e: v->getAdj()){
-            cout << v->getName() << ": " << e->getFlow() << endl;
-        }
+        cout << v->getName() << ": " << g->getIncomingFlow(v) << endl;
     }
 
 }
@@ -28,13 +27,11 @@ void showFlowCity(Graph* g, string city){
 void showDeficits(Graph* g){
     auto cities = g->getCities();
     for (auto city: cities){
-        for (auto e: city->getAdj()){
-            if (e->getFlow() < city->getDemand()){
-                cout << "--- " << city->getName() << " ---" << endl;
-                cout << "Flow: " << e->getFlow() << endl;
-                cout << "Demand: " << city->getDemand() << endl;
-                cout << "Deficit: " << city->getDemand() - e->getFlow() << endl;
-            }
+        if (g->getIncomingFlow(city) < city->getDemand()){
+            cout << "--- " << city->getName() << " ---" << endl;
+            cout << "Flow: " << g->getIncomingFlow(city) << endl;
+            cout << "Demand: " << city->getDemand() << endl;
+            cout << "Deficit: " << city->getDemand() - g->getIncomingFlow(city) << endl;
         }
     }
 }
@@ -67,6 +64,8 @@ void calculateMaxFlowToCities(Graph* g) {
 
     edmondsKarp(g, superSource, superSink);
 
+    g->removeVertex("SSink");
+    g->removeVertex("SSource");
 }
 
 void edmondsKarp(Graph *g, Vertex* source, Vertex* target) {
