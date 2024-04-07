@@ -23,10 +23,37 @@ void removeReservoir(Graph* g, string res){
 
 void simulatePipelineFailure(Graph* g) {
 
-    map<string, double> originalFlows;
     auto cities = g->getCities();
 
     auto edges = g->getEdges();
+
+    // TESTE
+    /*
+    auto novedez = g->findEdge(g->findVertex("PS_9"), g->findVertex("PS_10"));
+    auto quatrocinco = g->findEdge(g->findVertex("PS_4"), g->findVertex("PS_5"));
+    auto sibling9 = g->getSibling(novedez);
+    auto sibling4 = g->getSibling(quatrocinco);
+    if (sibling9 != nullptr) sibling9->setCapacity(0);
+    if (sibling4 != nullptr) sibling4->setCapacity(0);
+
+    auto cap9 = novedez->getCapacity();
+    auto cap4 = quatrocinco->getCapacity();
+
+    novedez->setCapacity(0);
+    quatrocinco->setCapacity(0);
+
+    calculateMaxFlowToCities(g);
+
+    for (auto city: g->getCities()){
+        cout << city->getName() << ": " << g->getIncomingFlow(city) << endl;
+    }
+
+    novedez->setCapacity(cap9);
+    quatrocinco->setCapacity(cap4);
+    if (sibling9 != nullptr) sibling9->setCapacity(cap9);
+    if (sibling4 != nullptr) sibling4->setCapacity(cap4);
+    */
+    //FIMDETESTE
 
 
     for (auto& edge : edges) {
@@ -43,16 +70,20 @@ void simulatePipelineFailure(Graph* g) {
         edge->setCapacity(0);
         calculateMaxFlowToCities(g);
 
-        for (auto city: cities){
+        for (auto city: g->getCities()){
             auto simFlow = g->getIncomingFlow(city);
             if (simFlow < city->getDemand()){
-                cout <<city->getName()<< " in pipe " << edge->getSource()->getCode() << " to " << edge->getDest()->getCode() << " deficit  of " << city->getDemand()-simFlow << endl;
+                cout <<city->getName()<< " in rupture of pipe " << edge->getSource()->getCode() << " to " << edge->getDest()->getCode() << " deficit of " << city->getDemand()-simFlow << endl;
             }
         }
 
         edge->setCapacity(capacity);
         if (sibling != nullptr) sibling->setCapacity((capacity));
     }
+}
+
+void takeOutStation(Graph* g, string station){
+    
 }
 
 

@@ -1,0 +1,87 @@
+\hypertarget{ex3_8h}{}\doxysection{/mnt/c/\+Uni/2/\+DA/proj1/\+FEUP-\/\+DA-\/proj1/src/ex3.h File Reference}
+\label{ex3_8h}\index{/mnt/c/Uni/2/DA/proj1/FEUP-\/DA-\/proj1/src/ex3.h@{/mnt/c/Uni/2/DA/proj1/FEUP-\/DA-\/proj1/src/ex3.h}}
+
+
+Functions regarding the exercises 3.\+X.  
+
+
+{\ttfamily \#include \char`\"{}ex3.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ex1.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$map$>$}\newline
+Include dependency graph for ex3.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ex3_8h_a1f142c77bed0e7c65ff1e1ae39ed540b}{remove\+Reservoir}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$graph, string res)
+\begin{DoxyCompactList}\small\item\em removes a reservoir and runs the calculate\+Max\+Flow\+To\+Cities function with the updated graph. Complexity\+: O(n$^\wedge$2) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ex3_8h_ab754b5cdc88204663781b470a3c619dd}{remove\+Pumping\+Stations}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$graph)
+\item 
+void \mbox{\hyperlink{ex3_8h_a9d2ed76f0b0ce4a3a0130197cf5a8036}{remove\+Pipelines}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$graph)
+\item 
+void \mbox{\hyperlink{ex3_8h_a5bc5f6481a69c5ebd444717cbf6b76fd}{simulate\+Pipeline\+Failure}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$g)
+\begin{DoxyCompactList}\small\item\em iterates through all pipelines and sets their capacity to 0 one at a time. It then runs the EK on the \char`\"{}updated\char`\"{} graph, checks what cities are lacking water, and prints it out. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions regarding the exercises 3.\+X. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ex3_8h_a9d2ed76f0b0ce4a3a0130197cf5a8036}\label{ex3_8h_a9d2ed76f0b0ce4a3a0130197cf5a8036}} 
+\index{ex3.h@{ex3.h}!removePipelines@{removePipelines}}
+\index{removePipelines@{removePipelines}!ex3.h@{ex3.h}}
+\doxysubsubsection{\texorpdfstring{removePipelines()}{removePipelines()}}
+{\footnotesize\ttfamily void remove\+Pipelines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{graph }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ex3_8h_ab754b5cdc88204663781b470a3c619dd}\label{ex3_8h_ab754b5cdc88204663781b470a3c619dd}} 
+\index{ex3.h@{ex3.h}!removePumpingStations@{removePumpingStations}}
+\index{removePumpingStations@{removePumpingStations}!ex3.h@{ex3.h}}
+\doxysubsubsection{\texorpdfstring{removePumpingStations()}{removePumpingStations()}}
+{\footnotesize\ttfamily void remove\+Pumping\+Stations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{graph }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ex3_8h_a1f142c77bed0e7c65ff1e1ae39ed540b}\label{ex3_8h_a1f142c77bed0e7c65ff1e1ae39ed540b}} 
+\index{ex3.h@{ex3.h}!removeReservoir@{removeReservoir}}
+\index{removeReservoir@{removeReservoir}!ex3.h@{ex3.h}}
+\doxysubsubsection{\texorpdfstring{removeReservoir()}{removeReservoir()}}
+{\footnotesize\ttfamily void remove\+Reservoir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{graph,  }\item[{string}]{res }\end{DoxyParamCaption})}
+
+
+
+removes a reservoir and runs the calculate\+Max\+Flow\+To\+Cities function with the updated graph. Complexity\+: O(n$^\wedge$2) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+{\em res} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ex3_8h_a5bc5f6481a69c5ebd444717cbf6b76fd}\label{ex3_8h_a5bc5f6481a69c5ebd444717cbf6b76fd}} 
+\index{ex3.h@{ex3.h}!simulatePipelineFailure@{simulatePipelineFailure}}
+\index{simulatePipelineFailure@{simulatePipelineFailure}!ex3.h@{ex3.h}}
+\doxysubsubsection{\texorpdfstring{simulatePipelineFailure()}{simulatePipelineFailure()}}
+{\footnotesize\ttfamily void simulate\+Pipeline\+Failure (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+iterates through all pipelines and sets their capacity to 0 one at a time. It then runs the EK on the \char`\"{}updated\char`\"{} graph, checks what cities are lacking water, and prints it out. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \\
+\hline
+\end{DoxyParams}

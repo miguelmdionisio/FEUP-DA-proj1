@@ -9,10 +9,12 @@ using namespace std;
 
 
 void showFlowAll(Graph* g){
+    std::ofstream outputFile("output.txt");
     auto cities = g->getCities();
     for (auto city: cities){
         auto flow = g->getIncomingFlow(city);
         cout << city->getName() << ": " << flow << endl;
+        outputFile << city->getName() << ": " << flow << endl;
     }
 }
 
@@ -38,7 +40,6 @@ void showDeficits(Graph* g){
 
 void calculateMaxFlowToCities(Graph* g) {
 
-    std::ofstream outputFile("output.txt");
 
 
     auto reservoirs = g->getReservoirs();
@@ -120,7 +121,6 @@ bool findAugmentingPath(Graph *g, Vertex *s, Vertex *t) {
     }
     return t->getVisited();
 }
-
 double findMinResidualAlongPath(Vertex *s, Vertex *t) {
     int f = INF;
     for (auto v = t; v != s; ) {
@@ -136,8 +136,6 @@ double findMinResidualAlongPath(Vertex *s, Vertex *t) {
     }
     return f;
 }
-
-
 void augmentFlowAlongPath(Vertex *s, Vertex *t, double f) {
     for (auto v = t; v != s; ) {
         auto e = v->getPath();

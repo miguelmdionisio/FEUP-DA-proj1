@@ -1,3 +1,7 @@
+/**
+ * @file main
+*/
+
 #include "../data_structures/read.h"
 #include "ex1.h"
 #include "ex3.h"
@@ -90,7 +94,6 @@ int main(){
                                 removePumpingStations(&graph);
                                 break;
                             case 3:
-                                removePipelines(&graph);
                                 simulatePipelineFailure(&graph);
                                 break;
                             case 4:

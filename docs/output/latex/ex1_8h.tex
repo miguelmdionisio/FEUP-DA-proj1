@@ -1,0 +1,203 @@
+\hypertarget{ex1_8h}{}\doxysection{/mnt/c/\+Uni/2/\+DA/proj1/\+FEUP-\/\+DA-\/proj1/src/ex1.h File Reference}
+\label{ex1_8h}\index{/mnt/c/Uni/2/DA/proj1/FEUP-\/DA-\/proj1/src/ex1.h@{/mnt/c/Uni/2/DA/proj1/FEUP-\/DA-\/proj1/src/ex1.h}}
+
+
+Functions regarding exercises 2.\+X.  
+
+
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#import \char`\"{}../data\+\_\+structures//\+Graph.\+h\char`\"{}}\newline
+Include dependency graph for ex1.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ex1_8h_a7212cfde96a26ff16a4d0fc588d23e9f}{show\+Flow\+All}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$g)
+\begin{DoxyCompactList}\small\item\em Print flow for all cities $\vert$ Complexity\+: O(n), n = n cities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ex1_8h_a8db5f475df5c296409c451c1c21e6f22}{show\+Flow\+City}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$g, string city)
+\begin{DoxyCompactList}\small\item\em Print flow to given city $\vert$ Complexity\+: O(n), n = num vertexs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ex1_8h_aede8200eeac5481e8e16d3c2ba8ededb}{show\+Deficits}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$g)
+\begin{DoxyCompactList}\small\item\em print deficits $\vert$ Complexity\+: O(n), n = n cities \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ex1_8h_a0a13bf4134edf5fab42606021c06638c}{edmonds\+Karp}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$g, \mbox{\hyperlink{classVertex}{Vertex}} $\ast$source, \mbox{\hyperlink{classVertex}{Vertex}} $\ast$target)
+\begin{DoxyCompactList}\small\item\em Edmonds Karp algorithm. We used the algorithm discussed in class, but since we have multiple sources and multiple sinks, we added a super Source/\+Sink, connected to respective nodes. Complexity\+: O(n$^\wedge$2), n = num nodes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ex1_8h_a8bc3d46f50219fbc9bef4b242ef92549}{calculate\+Max\+Flow\+To\+Cities}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$g)
+\begin{DoxyCompactList}\small\item\em creates supersource, supersink and calls the Edmond Karp algorithm to calculate max flow to all nodes. Complexity\+: ssame as Edmond Karp \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ex1_8h_a316d4d764e496a0571cac7a11eaf1973}{test\+And\+Visit}} (queue$<$ \mbox{\hyperlink{classVertex}{Vertex}} $\ast$ $>$ \&q, \mbox{\hyperlink{classEdge}{Edge}} $\ast$e, \mbox{\hyperlink{classVertex}{Vertex}} $\ast$w, double residual)
+\begin{DoxyCompactList}\small\item\em auxiliary function \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{ex1_8h_a23692acc5559e02e7ee57d0b59667cac}{find\+Augmenting\+Path}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$g, \mbox{\hyperlink{classVertex}{Vertex}} $\ast$s, \mbox{\hyperlink{classVertex}{Vertex}} $\ast$t)
+\begin{DoxyCompactList}\small\item\em finds augmenting path using a bfs \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ex1_8h_ad474fafca1f3d2f3858cbc0914b372be}{augment\+Flow\+Along\+Path}} (\mbox{\hyperlink{classVertex}{Vertex}} $\ast$s, \mbox{\hyperlink{classVertex}{Vertex}} $\ast$t, double f)
+\begin{DoxyCompactList}\small\item\em augments flow along path \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{ex1_8h_adb57cc2de65dfef46b1116dd52757f66}{find\+Min\+Residual\+Along\+Path}} (\mbox{\hyperlink{classVertex}{Vertex}} $\ast$s, \mbox{\hyperlink{classVertex}{Vertex}} $\ast$t)
+\begin{DoxyCompactList}\small\item\em searches the path for the minimal residual flow \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions regarding exercises 2.\+X. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ex1_8h_ad474fafca1f3d2f3858cbc0914b372be}\label{ex1_8h_ad474fafca1f3d2f3858cbc0914b372be}} 
+\index{ex1.h@{ex1.h}!augmentFlowAlongPath@{augmentFlowAlongPath}}
+\index{augmentFlowAlongPath@{augmentFlowAlongPath}!ex1.h@{ex1.h}}
+\doxysubsubsection{\texorpdfstring{augmentFlowAlongPath()}{augmentFlowAlongPath()}}
+{\footnotesize\ttfamily void augment\+Flow\+Along\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVertex}{Vertex}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}} $\ast$}]{t,  }\item[{double}]{f }\end{DoxyParamCaption})}
+
+
+
+augments flow along path 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+{\em t} & \\
+\hline
+{\em f} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ex1_8h_a8bc3d46f50219fbc9bef4b242ef92549}\label{ex1_8h_a8bc3d46f50219fbc9bef4b242ef92549}} 
+\index{ex1.h@{ex1.h}!calculateMaxFlowToCities@{calculateMaxFlowToCities}}
+\index{calculateMaxFlowToCities@{calculateMaxFlowToCities}!ex1.h@{ex1.h}}
+\doxysubsubsection{\texorpdfstring{calculateMaxFlowToCities()}{calculateMaxFlowToCities()}}
+{\footnotesize\ttfamily void calculate\+Max\+Flow\+To\+Cities (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+creates supersource, supersink and calls the Edmond Karp algorithm to calculate max flow to all nodes. Complexity\+: ssame as Edmond Karp 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ex1_8h_a0a13bf4134edf5fab42606021c06638c}\label{ex1_8h_a0a13bf4134edf5fab42606021c06638c}} 
+\index{ex1.h@{ex1.h}!edmondsKarp@{edmondsKarp}}
+\index{edmondsKarp@{edmondsKarp}!ex1.h@{ex1.h}}
+\doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}}
+{\footnotesize\ttfamily void edmonds\+Karp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{g,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}} $\ast$}]{target }\end{DoxyParamCaption})}
+
+
+
+Edmonds Karp algorithm. We used the algorithm discussed in class, but since we have multiple sources and multiple sinks, we added a super Source/\+Sink, connected to respective nodes. Complexity\+: O(n$^\wedge$2), n = num nodes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \\
+\hline
+{\em source} & \\
+\hline
+{\em target} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ex1_8h_a23692acc5559e02e7ee57d0b59667cac}\label{ex1_8h_a23692acc5559e02e7ee57d0b59667cac}} 
+\index{ex1.h@{ex1.h}!findAugmentingPath@{findAugmentingPath}}
+\index{findAugmentingPath@{findAugmentingPath}!ex1.h@{ex1.h}}
+\doxysubsubsection{\texorpdfstring{findAugmentingPath()}{findAugmentingPath()}}
+{\footnotesize\ttfamily bool find\+Augmenting\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{g,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+
+
+finds augmenting path using a bfs 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \\
+\hline
+{\em s} & \\
+\hline
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{ex1_8h_adb57cc2de65dfef46b1116dd52757f66}\label{ex1_8h_adb57cc2de65dfef46b1116dd52757f66}} 
+\index{ex1.h@{ex1.h}!findMinResidualAlongPath@{findMinResidualAlongPath}}
+\index{findMinResidualAlongPath@{findMinResidualAlongPath}!ex1.h@{ex1.h}}
+\doxysubsubsection{\texorpdfstring{findMinResidualAlongPath()}{findMinResidualAlongPath()}}
+{\footnotesize\ttfamily double find\+Min\+Residual\+Along\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVertex}{Vertex}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+
+
+searches the path for the minimal residual flow 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{ex1_8h_aede8200eeac5481e8e16d3c2ba8ededb}\label{ex1_8h_aede8200eeac5481e8e16d3c2ba8ededb}} 
+\index{ex1.h@{ex1.h}!showDeficits@{showDeficits}}
+\index{showDeficits@{showDeficits}!ex1.h@{ex1.h}}
+\doxysubsubsection{\texorpdfstring{showDeficits()}{showDeficits()}}
+{\footnotesize\ttfamily void show\+Deficits (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+print deficits $\vert$ Complexity\+: O(n), n = n cities 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ex1_8h_a7212cfde96a26ff16a4d0fc588d23e9f}\label{ex1_8h_a7212cfde96a26ff16a4d0fc588d23e9f}} 
+\index{ex1.h@{ex1.h}!showFlowAll@{showFlowAll}}
+\index{showFlowAll@{showFlowAll}!ex1.h@{ex1.h}}
+\doxysubsubsection{\texorpdfstring{showFlowAll()}{showFlowAll()}}
+{\footnotesize\ttfamily void show\+Flow\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{g }\end{DoxyParamCaption})}
+
+
+
+Print flow for all cities $\vert$ Complexity\+: O(n), n = n cities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ex1_8h_a8db5f475df5c296409c451c1c21e6f22}\label{ex1_8h_a8db5f475df5c296409c451c1c21e6f22}} 
+\index{ex1.h@{ex1.h}!showFlowCity@{showFlowCity}}
+\index{showFlowCity@{showFlowCity}!ex1.h@{ex1.h}}
+\doxysubsubsection{\texorpdfstring{showFlowCity()}{showFlowCity()}}
+{\footnotesize\ttfamily void show\+Flow\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{g,  }\item[{string}]{city }\end{DoxyParamCaption})}
+
+
+
+Print flow to given city $\vert$ Complexity\+: O(n), n = num vertexs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g,string} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ex1_8h_a316d4d764e496a0571cac7a11eaf1973}\label{ex1_8h_a316d4d764e496a0571cac7a11eaf1973}} 
+\index{ex1.h@{ex1.h}!testAndVisit@{testAndVisit}}
+\index{testAndVisit@{testAndVisit}!ex1.h@{ex1.h}}
+\doxysubsubsection{\texorpdfstring{testAndVisit()}{testAndVisit()}}
+{\footnotesize\ttfamily void test\+And\+Visit (\begin{DoxyParamCaption}\item[{queue$<$ \mbox{\hyperlink{classVertex}{Vertex}} $\ast$ $>$ \&}]{q,  }\item[{\mbox{\hyperlink{classEdge}{Edge}} $\ast$}]{e,  }\item[{\mbox{\hyperlink{classVertex}{Vertex}} $\ast$}]{w,  }\item[{double}]{residual }\end{DoxyParamCaption})}
+
+
+
+auxiliary function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & \\
+\hline
+{\em e} & \\
+\hline
+{\em w} & \\
+\hline
+{\em residual} & \\
+\hline
+\end{DoxyParams}

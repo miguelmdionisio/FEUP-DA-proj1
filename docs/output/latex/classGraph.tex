@@ -1,0 +1,110 @@
+\hypertarget{classGraph}{}\doxysection{Graph Class Reference}
+\label{classGraph}\index{Graph@{Graph}}
+
+
+\mbox{\hyperlink{classGraph}{Graph}} class, similar to the one used in class, stores vertices that store edges themselves, also has an array of edges for simplicity in given situations.  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGraph_a749de9a9157fdc25d4bfd17ae4a6fea1}{remove\+Vertex}} (const string \&code)
+\begin{DoxyCompactList}\small\item\em removes a vertex and its edges $\vert$ Complexity\+: \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classEdge}{Edge}} $\ast$ $>$ \mbox{\hyperlink{classGraph_aecec830d741d7039f8879506925e7ee1}{get\+Incoming}} (\mbox{\hyperlink{classVertex}{Vertex}} $\ast$v)
+\item 
+\mbox{\Hypertarget{classGraph_ad57d3ac0e63e63fac4234fc8b96d847b}\label{classGraph_ad57d3ac0e63e63fac4234fc8b96d847b}} 
+int {\bfseries get\+Incoming\+Flow} (\mbox{\hyperlink{classVertex}{Vertex}} $\ast$v)
+\item 
+\mbox{\Hypertarget{classGraph_a081da710f7aaefdf1549fee3d3c41339}\label{classGraph_a081da710f7aaefdf1549fee3d3c41339}} 
+void {\bfseries add\+Edge} (\mbox{\hyperlink{classEdge}{Edge}} $\ast$e)
+\item 
+\mbox{\Hypertarget{classGraph_a06755e5e37ab18dba3d4f791a7298794}\label{classGraph_a06755e5e37ab18dba3d4f791a7298794}} 
+vector$<$ \mbox{\hyperlink{classEdge}{Edge}} $\ast$ $>$ {\bfseries get\+Edges} ()
+\item 
+\mbox{\Hypertarget{classGraph_a06808dabf1879326a071b2ab008d82a6}\label{classGraph_a06808dabf1879326a071b2ab008d82a6}} 
+vector$<$ \mbox{\hyperlink{classVertex}{Vertex}} $\ast$ $>$ {\bfseries get\+Cities} ()
+\item 
+\mbox{\Hypertarget{classGraph_aebce983b2cac602e7f545fda91a72424}\label{classGraph_aebce983b2cac602e7f545fda91a72424}} 
+vector$<$ \mbox{\hyperlink{classVertex}{Vertex}} $\ast$ $>$ {\bfseries get\+Reservoirs} ()
+\item 
+\mbox{\Hypertarget{classGraph_a168687d8c3f9dd49a8f9293697b7760c}\label{classGraph_a168687d8c3f9dd49a8f9293697b7760c}} 
+vector$<$ \mbox{\hyperlink{classVertex}{Vertex}} $\ast$ $>$ {\bfseries get\+Stations} ()
+\item 
+\mbox{\Hypertarget{classGraph_a68f211a37b40067115fc6274d46153ed}\label{classGraph_a68f211a37b40067115fc6274d46153ed}} 
+void {\bfseries reset} ()
+\item 
+\mbox{\Hypertarget{classGraph_ae6c64fd4b9458ff910e43b69614718fe}\label{classGraph_ae6c64fd4b9458ff910e43b69614718fe}} 
+vector$<$ \mbox{\hyperlink{classVertex}{Vertex}} $\ast$ $>$ {\bfseries get\+Vertex\+Set} ()
+\item 
+\mbox{\Hypertarget{classGraph_a83d1f5ae773ce2f85b4c07d19a737c91}\label{classGraph_a83d1f5ae773ce2f85b4c07d19a737c91}} 
+void {\bfseries add\+Vertex} (\mbox{\hyperlink{classVertex}{Vertex}} $\ast$vertex)
+\item 
+\mbox{\Hypertarget{classGraph_ab065135d8a56875a59b2f4b50aa3f82c}\label{classGraph_ab065135d8a56875a59b2f4b50aa3f82c}} 
+\mbox{\hyperlink{classEdge}{Edge}} $\ast$ {\bfseries get\+Sibling} (\mbox{\hyperlink{classEdge}{Edge}} $\ast$e)
+\item 
+\mbox{\Hypertarget{classGraph_a3ab61f34c39f3e74ee979d86478c4857}\label{classGraph_a3ab61f34c39f3e74ee979d86478c4857}} 
+\mbox{\hyperlink{classEdge}{Edge}} $\ast$ {\bfseries find\+Edge} (\mbox{\hyperlink{classVertex}{Vertex}} $\ast$from, \mbox{\hyperlink{classVertex}{Vertex}} $\ast$to)
+\item 
+\mbox{\Hypertarget{classGraph_a5e660c53a1c689eb609f1b6b50825ef5}\label{classGraph_a5e660c53a1c689eb609f1b6b50825ef5}} 
+void {\bfseries reset\+Flows} ()
+\item 
+\mbox{\Hypertarget{classGraph_a004868e2d963503e4fffca3b13ede03c}\label{classGraph_a004868e2d963503e4fffca3b13ede03c}} 
+\mbox{\hyperlink{classVertex}{Vertex}} $\ast$ {\bfseries find\+Vertex} (const string \&code)
+\item 
+\mbox{\Hypertarget{classGraph_a4d6366603aa3ff5187e05d8f795b0e8d}\label{classGraph_a4d6366603aa3ff5187e05d8f795b0e8d}} 
+\mbox{\hyperlink{classVertex}{Vertex}} $\ast$ {\bfseries findvertex\+By\+Name} (string name)
+\item 
+\mbox{\Hypertarget{classGraph_a8907665f0d9aa4c917a58b78f5858d9b}\label{classGraph_a8907665f0d9aa4c917a58b78f5858d9b}} 
+void {\bfseries check\+Network\+Sufficiency} ()
+\item 
+\mbox{\Hypertarget{classGraph_a40fcd86e35ead4d0649b7ca01554c426}\label{classGraph_a40fcd86e35ead4d0649b7ca01554c426}} 
+void {\bfseries calculate\+Metrics} ()
+\item 
+\mbox{\Hypertarget{classGraph_ab40145513857efd02516b6fc8879bd1e}\label{classGraph_ab40145513857efd02516b6fc8879bd1e}} 
+void {\bfseries balance\+Network} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classGraph}{Graph}} class, similar to the one used in class, stores vertices that store edges themselves, also has an array of edges for simplicity in given situations. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGraph_aecec830d741d7039f8879506925e7ee1}\label{classGraph_aecec830d741d7039f8879506925e7ee1}} 
+\index{Graph@{Graph}!getIncoming@{getIncoming}}
+\index{getIncoming@{getIncoming}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getIncoming()}{getIncoming()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classEdge}{Edge}} $\ast$ $>$ Graph\+::get\+Incoming (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVertex}{Vertex}} $\ast$}]{v }\end{DoxyParamCaption})}
+
+fetches incoming edges 
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_a749de9a9157fdc25d4bfd17ae4a6fea1}\label{classGraph_a749de9a9157fdc25d4bfd17ae4a6fea1}} 
+\index{Graph@{Graph}!removeVertex@{removeVertex}}
+\index{removeVertex@{removeVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeVertex()}{removeVertex()}}
+{\footnotesize\ttfamily void Graph\+::remove\+Vertex (\begin{DoxyParamCaption}\item[{const string \&}]{code }\end{DoxyParamCaption})}
+
+
+
+removes a vertex and its edges $\vert$ Complexity\+: 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Uni/2/\+DA/proj1/\+FEUP-\/\+DA-\/proj1/data\+\_\+structures/\mbox{\hyperlink{Graph_8h}{Graph.\+h}}\item 
+/mnt/c/\+Uni/2/\+DA/proj1/\+FEUP-\/\+DA-\/proj1/data\+\_\+structures/Graph.\+cpp\end{DoxyCompactItemize}

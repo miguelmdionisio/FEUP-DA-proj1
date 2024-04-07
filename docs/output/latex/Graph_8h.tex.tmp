@@ -1,0 +1,29 @@
+\hypertarget{Graph_8h}{}\doxysection{/mnt/c/\+Uni/2/\+DA/proj1/\+FEUP-\/\+DA-\/proj1/data\+\_\+structures/\+Graph.h File Reference}
+\label{Graph_8h}\index{/mnt/c/Uni/2/DA/proj1/FEUP-\/DA-\/proj1/data\_structures/Graph.h@{/mnt/c/Uni/2/DA/proj1/FEUP-\/DA-\/proj1/data\_structures/Graph.h}}
+
+
+header filee for classes \mbox{\hyperlink{classVertex}{Vertex}}, \mbox{\hyperlink{classEdge}{Edge}} and \mbox{\hyperlink{classGraph}{Graph}}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+Include dependency graph for Graph.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classEdge}{Edge}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classEdge}{Edge}} class (pipelines) \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classVertex}{Vertex}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classVertex}{Vertex}} class, stores Reservoirs, Pumping Stations and Cities. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classGraph}{Graph}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classGraph}{Graph}} class, similar to the one used in class, stores vertices that store edges themselves, also has an array of edges for simplicity in given situations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+header filee for classes \mbox{\hyperlink{classVertex}{Vertex}}, \mbox{\hyperlink{classEdge}{Edge}} and \mbox{\hyperlink{classGraph}{Graph}} 
+

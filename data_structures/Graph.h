@@ -1,3 +1,8 @@
+/**
+ * @file Graph.h
+ * @brief header filee for classes Vertex, Edge and Graph
+*/
+
 #ifndef GRAPH_H
 #define GRAPH_H
 
@@ -10,6 +15,9 @@ using namespace std;
 
 class Vertex;
 
+/**
+ * @brief Edge class (pipelines)
+ */
 class Edge {
 public:
     Edge(int capacity, Vertex* dest, Vertex* source, int flow) : capacity(capacity), dest(dest), source(source), flow(flow) {}
@@ -57,6 +65,9 @@ private:
     bool aux = false;
 };
 
+/**
+ * @brief Vertex class, stores Reservoirs, Pumping Stations and Cities
+ */
 class Vertex {
     string type;
     int id;
@@ -176,12 +187,24 @@ public:
 
 };
 
+/**
+ * @brief Graph class, similar to the one used in class, stores vertices that store edges themselves, also has an array of edges for simplicity in given situations.
+ */
 class Graph {
     vector<Vertex *> vertexSet;
     vector<Edge *> edges;
 
 public:
+    /**
+     * @brief removes a vertex and its edges | Complexity:
+     * @param code
+     */
     void removeVertex(const string& code);
+    /**
+     * fetches incoming edges
+     * @param v
+     * @return
+     */
     vector<Edge *> getIncoming(Vertex* v);
     int getIncomingFlow(Vertex* v);
     void addEdge(Edge *e);

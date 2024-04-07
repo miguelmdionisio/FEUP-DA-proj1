@@ -1,0 +1,91 @@
+\hypertarget{classVertex}{}\doxysection{Vertex Class Reference}
+\label{classVertex}\index{Vertex@{Vertex}}
+
+
+\mbox{\hyperlink{classVertex}{Vertex}} class, stores Reservoirs, Pumping Stations and Cities.  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVertex_a80a54a84866d511b63bcc6f38899bed9}\label{classVertex_a80a54a84866d511b63bcc6f38899bed9}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classVertex}{Vertex}} \&other) const
+\item 
+\mbox{\Hypertarget{classVertex_a2770b7bf10e9645cf01675b6d0152f07}\label{classVertex_a2770b7bf10e9645cf01675b6d0152f07}} 
+bool {\bfseries remove\+Edge} (\mbox{\hyperlink{classVertex}{Vertex}} $\ast$dest)
+\item 
+\mbox{\Hypertarget{classVertex_a82b5fde7364e01994e1cbbd48c159263}\label{classVertex_a82b5fde7364e01994e1cbbd48c159263}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classVertex}{Vertex}} \&other) const
+\item 
+\mbox{\Hypertarget{classVertex_a8680da16057ec72dde00eb7ebf43e4d7}\label{classVertex_a8680da16057ec72dde00eb7ebf43e4d7}} 
+void {\bfseries add\+Edge} (\mbox{\hyperlink{classEdge}{Edge}} $\ast$edge)
+\item 
+\mbox{\Hypertarget{classVertex_a711970c44231d5247eba4f202bd4a160}\label{classVertex_a711970c44231d5247eba4f202bd4a160}} 
+bool {\bfseries get\+Visited} () const
+\item 
+\mbox{\Hypertarget{classVertex_a1a05a7e31c4edbdf765778a76119e3c4}\label{classVertex_a1a05a7e31c4edbdf765778a76119e3c4}} 
+void {\bfseries set\+Visited} (bool vis)
+\item 
+\mbox{\Hypertarget{classVertex_a68a41cff0a7073937c63d1c518695635}\label{classVertex_a68a41cff0a7073937c63d1c518695635}} 
+\mbox{\hyperlink{classEdge}{Edge}} $\ast$ {\bfseries get\+Path} ()
+\item 
+\mbox{\Hypertarget{classVertex_af76693918517a037b703fa7d511aa597}\label{classVertex_af76693918517a037b703fa7d511aa597}} 
+void {\bfseries set\+Path} (\mbox{\hyperlink{classEdge}{Edge}} $\ast$edge)
+\item 
+\mbox{\Hypertarget{classVertex_a3cc6c53c5ff0fc5a3e4ce3e3e7a04026}\label{classVertex_a3cc6c53c5ff0fc5a3e4ce3e3e7a04026}} 
+void {\bfseries set\+Type} (string new\+Type)
+\item 
+\mbox{\Hypertarget{classVertex_a23bd01712962d9af2987cc3932443baa}\label{classVertex_a23bd01712962d9af2987cc3932443baa}} 
+void {\bfseries set\+Code} (string new\+Code)
+\item 
+\mbox{\Hypertarget{classVertex_a13952fd06acef95259a213472ab10e54}\label{classVertex_a13952fd06acef95259a213472ab10e54}} 
+void {\bfseries set\+Municipality} (string new\+Municipality)
+\item 
+\mbox{\Hypertarget{classVertex_a234ceb105223c6e1f465fd26bc3e0db5}\label{classVertex_a234ceb105223c6e1f465fd26bc3e0db5}} 
+void {\bfseries set\+Name} (string new\+Name)
+\item 
+\mbox{\Hypertarget{classVertex_a9fcb9bc72892e880588a015e4d70ff84}\label{classVertex_a9fcb9bc72892e880588a015e4d70ff84}} 
+void {\bfseries set\+Max\+Delivery} (int new\+Max\+Delivery)
+\item 
+\mbox{\Hypertarget{classVertex_a16f9d4f42e3d24081a3fbf668d7a3a86}\label{classVertex_a16f9d4f42e3d24081a3fbf668d7a3a86}} 
+void {\bfseries set\+Demand} (double new\+Demand)
+\item 
+\mbox{\Hypertarget{classVertex_aebf93bc0c16bf5127080bca99ba1d2b8}\label{classVertex_aebf93bc0c16bf5127080bca99ba1d2b8}} 
+void {\bfseries set\+Population} (int new\+Pop)
+\item 
+\mbox{\Hypertarget{classVertex_ab1720eb1061bc87320ed40a5208da3bd}\label{classVertex_ab1720eb1061bc87320ed40a5208da3bd}} 
+vector$<$ \mbox{\hyperlink{classEdge}{Edge}} $\ast$ $>$ {\bfseries get\+Adj} ()
+\item 
+\mbox{\Hypertarget{classVertex_a5dc80d2364b5665621a02122f3fe41d0}\label{classVertex_a5dc80d2364b5665621a02122f3fe41d0}} 
+string {\bfseries get\+Type} ()
+\item 
+\mbox{\Hypertarget{classVertex_a569d9889aa2bb893b65fb58343b76bd9}\label{classVertex_a569d9889aa2bb893b65fb58343b76bd9}} 
+string {\bfseries get\+Code} ()
+\item 
+\mbox{\Hypertarget{classVertex_a6aabdb3687c6e2f0e0ce40484a8f19cb}\label{classVertex_a6aabdb3687c6e2f0e0ce40484a8f19cb}} 
+string {\bfseries get\+Municipality} ()
+\item 
+\mbox{\Hypertarget{classVertex_a8d4eb908168d196d899934417c50df8e}\label{classVertex_a8d4eb908168d196d899934417c50df8e}} 
+string {\bfseries get\+Name} ()
+\item 
+\mbox{\Hypertarget{classVertex_a5b479f14bc4ca0ec99111e4abe3bca64}\label{classVertex_a5b479f14bc4ca0ec99111e4abe3bca64}} 
+int {\bfseries get\+Max\+Delivery} () const
+\item 
+\mbox{\Hypertarget{classVertex_ab86cba89fe67cdcd89dd965d125ad5c8}\label{classVertex_ab86cba89fe67cdcd89dd965d125ad5c8}} 
+double {\bfseries get\+Demand} () const
+\item 
+\mbox{\Hypertarget{classVertex_af1b23cc050c9fdac1ae3cfec4e24efdb}\label{classVertex_af1b23cc050c9fdac1ae3cfec4e24efdb}} 
+int {\bfseries get\+Population} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classVertex}{Vertex}} class, stores Reservoirs, Pumping Stations and Cities. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/\+Uni/2/\+DA/proj1/\+FEUP-\/\+DA-\/proj1/data\+\_\+structures/\mbox{\hyperlink{Graph_8h}{Graph.\+h}}\end{DoxyCompactItemize}

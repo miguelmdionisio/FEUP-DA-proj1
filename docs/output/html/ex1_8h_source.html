@@ -69,24 +69,44 @@ $(function() {
 <div class="title">ex1.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef PROJ1_EX1_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define PROJ1_EX1_H</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;queue&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#import &quot;../data_structures//Graph.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keywordtype">void</span> showFlowAll(Graph* g);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">void</span> showFlowCity(Graph* g, <span class="keywordtype">string</span> city);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">void</span> showDeficits(Graph* g);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">void</span> edmondsKarp(Graph *g, Vertex *source, Vertex *target);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">void</span> calculateMaxFlowToCities(Graph* g);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> testAndVisit(queue&lt;Vertex*&gt; &amp;q, Edge *e, Vertex *w, <span class="keywordtype">double</span> residual);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">bool</span> findAugmentingPath(Graph *g, Vertex *s, Vertex *t);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> augmentFlowAlongPath(Vertex *s, Vertex *t, <span class="keywordtype">double</span> f);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">double</span> findMinResidualAlongPath(Vertex *s, Vertex *t);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJ1_EX1_H</span></div>
+<a href="ex1_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef PROJ1_EX1_H</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define PROJ1_EX1_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#import &quot;../data_structures//Graph.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ex1_8h.html#a7212cfde96a26ff16a4d0fc588d23e9f">showFlowAll</a>(<a class="code" href="classGraph.html">Graph</a>* g);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ex1_8h.html#a8db5f475df5c296409c451c1c21e6f22">showFlowCity</a>(<a class="code" href="classGraph.html">Graph</a>* g, <span class="keywordtype">string</span> city);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ex1_8h.html#aede8200eeac5481e8e16d3c2ba8ededb">showDeficits</a>(<a class="code" href="classGraph.html">Graph</a>* g);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ex1_8h.html#a0a13bf4134edf5fab42606021c06638c">edmondsKarp</a>(<a class="code" href="classGraph.html">Graph</a> *g, <a class="code" href="classVertex.html">Vertex</a> *source, <a class="code" href="classVertex.html">Vertex</a> *target);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ex1_8h.html#a8bc3d46f50219fbc9bef4b242ef92549">calculateMaxFlowToCities</a>(<a class="code" href="classGraph.html">Graph</a>* g);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="ex1_8h.html#a316d4d764e496a0571cac7a11eaf1973">   51</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ex1_8h.html#a316d4d764e496a0571cac7a11eaf1973">testAndVisit</a>(queue&lt;Vertex*&gt; &amp;q, <a class="code" href="classEdge.html">Edge</a> *e, <a class="code" href="classVertex.html">Vertex</a> *w, <span class="keywordtype">double</span> residual);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="ex1_8h.html#a23692acc5559e02e7ee57d0b59667cac">findAugmentingPath</a>(<a class="code" href="classGraph.html">Graph</a> *g, <a class="code" href="classVertex.html">Vertex</a> *s, <a class="code" href="classVertex.html">Vertex</a> *t);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> <a class="code" href="ex1_8h.html#ad474fafca1f3d2f3858cbc0914b372be">augmentFlowAlongPath</a>(<a class="code" href="classVertex.html">Vertex</a> *s, <a class="code" href="classVertex.html">Vertex</a> *t, <span class="keywordtype">double</span> f);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">double</span> <a class="code" href="ex1_8h.html#adb57cc2de65dfef46b1116dd52757f66">findMinResidualAlongPath</a>(<a class="code" href="classVertex.html">Vertex</a> *s, <a class="code" href="classVertex.html">Vertex</a> *t);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJ1_EX1_H</span></div>
+<div class="ttc" id="aclassEdge_html"><div class="ttname"><a href="classEdge.html">Edge</a></div><div class="ttdoc">Edge class (pipelines)</div><div class="ttdef"><b>Definition:</b> Graph.h:21</div></div>
+<div class="ttc" id="aclassGraph_html"><div class="ttname"><a href="classGraph.html">Graph</a></div><div class="ttdoc">Graph class, similar to the one used in class, stores vertices that store edges themselves,...</div><div class="ttdef"><b>Definition:</b> Graph.h:193</div></div>
+<div class="ttc" id="aclassVertex_html"><div class="ttname"><a href="classVertex.html">Vertex</a></div><div class="ttdoc">Vertex class, stores Reservoirs, Pumping Stations and Cities.</div><div class="ttdef"><b>Definition:</b> Graph.h:71</div></div>
+<div class="ttc" id="aex1_8h_html_a0a13bf4134edf5fab42606021c06638c"><div class="ttname"><a href="ex1_8h.html#a0a13bf4134edf5fab42606021c06638c">edmondsKarp</a></div><div class="ttdeci">void edmondsKarp(Graph *g, Vertex *source, Vertex *target)</div><div class="ttdoc">Edmonds Karp algorithm. We used the algorithm discussed in class, but since we have multiple sources ...</div><div class="ttdef"><b>Definition:</b> ex1.cpp:71</div></div>
+<div class="ttc" id="aex1_8h_html_a23692acc5559e02e7ee57d0b59667cac"><div class="ttname"><a href="ex1_8h.html#a23692acc5559e02e7ee57d0b59667cac">findAugmentingPath</a></div><div class="ttdeci">bool findAugmentingPath(Graph *g, Vertex *s, Vertex *t)</div><div class="ttdoc">finds augmenting path using a bfs</div><div class="ttdef"><b>Definition:</b> ex1.cpp:99</div></div>
+<div class="ttc" id="aex1_8h_html_a316d4d764e496a0571cac7a11eaf1973"><div class="ttname"><a href="ex1_8h.html#a316d4d764e496a0571cac7a11eaf1973">testAndVisit</a></div><div class="ttdeci">void testAndVisit(queue&lt; Vertex * &gt; &amp;q, Edge *e, Vertex *w, double residual)</div><div class="ttdoc">auxiliary function</div></div>
+<div class="ttc" id="aex1_8h_html_a7212cfde96a26ff16a4d0fc588d23e9f"><div class="ttname"><a href="ex1_8h.html#a7212cfde96a26ff16a4d0fc588d23e9f">showFlowAll</a></div><div class="ttdeci">void showFlowAll(Graph *g)</div><div class="ttdoc">Print flow for all cities | Complexity: O(n), n = n cities.</div><div class="ttdef"><b>Definition:</b> ex1.cpp:11</div></div>
+<div class="ttc" id="aex1_8h_html_a8bc3d46f50219fbc9bef4b242ef92549"><div class="ttname"><a href="ex1_8h.html#a8bc3d46f50219fbc9bef4b242ef92549">calculateMaxFlowToCities</a></div><div class="ttdeci">void calculateMaxFlowToCities(Graph *g)</div><div class="ttdoc">creates supersource, supersink and calls the Edmond Karp algorithm to calculate max flow to all nodes...</div><div class="ttdef"><b>Definition:</b> ex1.cpp:39</div></div>
+<div class="ttc" id="aex1_8h_html_a8db5f475df5c296409c451c1c21e6f22"><div class="ttname"><a href="ex1_8h.html#a8db5f475df5c296409c451c1c21e6f22">showFlowCity</a></div><div class="ttdeci">void showFlowCity(Graph *g, string city)</div><div class="ttdoc">Print flow to given city | Complexity: O(n), n = num vertexs.</div><div class="ttdef"><b>Definition:</b> ex1.cpp:19</div></div>
+<div class="ttc" id="aex1_8h_html_ad474fafca1f3d2f3858cbc0914b372be"><div class="ttname"><a href="ex1_8h.html#ad474fafca1f3d2f3858cbc0914b372be">augmentFlowAlongPath</a></div><div class="ttdeci">void augmentFlowAlongPath(Vertex *s, Vertex *t, double f)</div><div class="ttdoc">augments flow along path</div><div class="ttdef"><b>Definition:</b> ex1.cpp:141</div></div>
+<div class="ttc" id="aex1_8h_html_adb57cc2de65dfef46b1116dd52757f66"><div class="ttname"><a href="ex1_8h.html#adb57cc2de65dfef46b1116dd52757f66">findMinResidualAlongPath</a></div><div class="ttdeci">double findMinResidualAlongPath(Vertex *s, Vertex *t)</div><div class="ttdoc">searches the path for the minimal residual flow</div><div class="ttdef"><b>Definition:</b> ex1.cpp:124</div></div>
+<div class="ttc" id="aex1_8h_html_aede8200eeac5481e8e16d3c2ba8ededb"><div class="ttname"><a href="ex1_8h.html#aede8200eeac5481e8e16d3c2ba8ededb">showDeficits</a></div><div class="ttdeci">void showDeficits(Graph *g)</div><div class="ttdoc">print deficits | Complexity: O(n), n = n cities</div><div class="ttdef"><b>Definition:</b> ex1.cpp:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

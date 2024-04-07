@@ -1,0 +1,14 @@
+digraph "/mnt/c/Uni/2/DA/proj1/FEUP-DA-proj1/data_structures/Graph.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="/mnt/c/Uni/2/DA/proj1\l/FEUP-DA-proj1/data_structures\l/Graph.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="header filee for classes Vertex, Edge and Graph"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="/mnt/c/Uni/2/DA/proj1\l/FEUP-DA-proj1/data_structures\l/read.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$read_8h.html",tooltip="Contains functions for parsing input files and populating a graph."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="/mnt/c/Uni/2/DA/proj1\l/FEUP-DA-proj1/src/ex1.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ex1_8h.html",tooltip="Functions regarding exercises 2.X."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="/mnt/c/Uni/2/DA/proj1\l/FEUP-DA-proj1/src/ex3.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ex3_8h.html",tooltip="Functions regarding the exercises 3.X."];
+  Node4 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}
