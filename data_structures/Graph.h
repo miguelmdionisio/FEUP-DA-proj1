@@ -1,3 +1,8 @@
+/**
+ * @file graph.h
+ * @brief header class for the graph class structure
+*/
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -8,7 +13,9 @@ using namespace std;
 
 class Vertex;
 
-
+/**
+ * @brief Edge class
+*/
 class Edge {
     public:
     Edge(int capacity, Vertex* dest, Vertex* source, int flow) : capacity(capacity), dest(dest), source(source), flow(flow) {}
@@ -57,7 +64,9 @@ class Edge {
     bool aux = false;
 };
 
-
+/**
+ * @brief Vertex class
+*/
 class Vertex {
 
     string type;

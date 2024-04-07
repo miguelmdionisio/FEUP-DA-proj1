@@ -1,5 +1,11 @@
 #include "read.h"
 
+/**
+@brief Populates a graph with data from large data files
+Complexity: O(n), where n is the total number of lines in all data files
+@param None
+@return A populated Graph object
+**/
 Graph read::populate_large() {
 
     Graph graph;
@@ -141,7 +147,13 @@ Graph read::populate_large() {
     return graph;
 }
 
-
+/**
+@brief Populates a graph with data from default data files
+* Complexity: O(n), where n is the total number of lines in all data files
+*
+* @param None
+* @return Graph object
+**/
 Graph read::populate() {
     
     Graph graph;
